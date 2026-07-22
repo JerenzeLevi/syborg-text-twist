@@ -1,0 +1,66 @@
+SYBORG TEXT TWIST — RULES
+=========================
+
+GOAL
+Each round scrambles a hidden base word. Tap letter tiles to spell any real
+word of 3+ letters hidden inside it, then hit Enter. Find as many sub-words
+as you can before time runs out — finding a word the same length as the full
+base word is the biggest prize of the round.
+
+CONTROLS
+- Click tiles (or type letters on your keyboard) to build a guess
+- Enter   — submit the current guess
+- Back    — remove the last letter
+- Clear   — wipe the current guess
+- Twist   — reshuffle the tiles
+- Hint    — reveals the first letter of the longest unsolved word (costs 25 points)
+
+SCORING
+- 3-letter word: 10 pts
+- 4-letter word: 20 pts
+- 5-letter word: 40 pts
+- 6-letter word: 70 pts
+- 7+ letter word: 15 pts per letter
+- Every correct word also adds a few seconds to the clock (longer words add more)
+- Back-to-back correct words build a streak multiplier (up to 2.5x) — a wrong
+  guess resets it
+- Solving the full base word banks a one-time "Second Wind": the clock
+  auto-refills to 120s the instant it would otherwise hit zero
+- Hints cost 25 points each and only work if you can afford one
+
+TIMING & PENALTIES
+- Every round starts with 120 seconds on the clock
+- Guessing a real dictionary word that isn't in this round's letter set: -3 seconds
+- Guessing something that isn't a real word at all: -10 seconds
+- Re-submitting a word you already found does nothing (no penalty, no points)
+- Clearing every word in the round advances you straight to a fresh puzzle,
+  carrying your score, time, and streak forward — Daily Challenge stays on
+  its one shared puzzle instead
+
+MODES (combinable via toggles on Home)
+- Daily Challenge — everyone gets the same puzzle for the day (Manila time),
+  for a fair leaderboard comparison
+- Technical       — the base word is always IT/CS/BLIS/BSIS vocabulary
+- Abyssal         — you get 3 lives; a wrong guess costs a life and 0 lives
+  ends the round immediately
+- Glitch          — the tile row jolts and the word-length bubbles scramble
+  into fake numbers on a timer
+- Blind           — tiles blur from memory after a few seconds, with periodic
+  full blackouts
+
+BADGES
+- Master of Wind        — bank Second Wind (find the full base word) in 20 rounds in a row
+- Wind Immunity         — finish 10 rounds in a row without ever needing Second Wind
+- Hintless              — finish 5 rounds in a row without using a hint
+- Bro thinks s/he's speed — clear every word in a round in under 5 seconds
+- Speedrun!             — clear 20 rounds in a row within 2 minutes total
+- Call ambulance but not for me — clear a round with under 3 seconds left
+- King below The Apex; Levi / W-w-what a hacker! — land at #2 or #1 on the
+  leaderboard, any mode
+- A few other badges are secrets — you'll know when you've found one
+
+LEADERBOARD
+After a round ends, save your score under a name. Scores are tracked
+separately per mode combination, and using the same name in the same mode
+again offers to replace your lower score. A permanent top score belonging to
+"Jerenze Levi Omandam" sits on the board for everyone to chase.

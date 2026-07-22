@@ -1,0 +1,17 @@
+CREDITS
+=======
+SYBORG Text Twist uses a few assets that are not original work by the
+project team. They're used here for a non-commercial school orientation
+event; all rights remain with their original owners.
+
+IMAGES
+- background.jpg
+  Downloaded image, not created by the team.
+  Artist/source: unknown / credit pending
+
+AUDIO
+See audio/CREDITS.txt for the full track-by-track breakdown of the
+background music playlist (public/audio/).
+
+If you are the owner of any of these assets and want credit corrected,
+removed, or a link added, please contact the project maintainer.
