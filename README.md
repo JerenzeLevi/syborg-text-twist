@@ -158,6 +158,11 @@ supabase/
 └── schema.sql      # Global leaderboard table + RLS policies
 ```
 
+## 📄 License
+
+MIT — see [`LICENSE`](LICENSE). Covers the source code only; some third-party
+assets under `public/` are excluded, see below.
+
 ## 🙏 Credits / asset attribution
 
 Not everything under `public/` was made by the team — some audio and one
