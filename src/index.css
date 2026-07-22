@@ -1,0 +1,397 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Tahoma Fallback";
+  src: local("Tahoma"), local("Segoe UI"), local("Verdana");
+}
+
+:root {
+  --xp-blue-dark: #0a246a;
+  --xp-blue-mid: #3b6ea5;
+  --xp-blue-light: #a6caf0;
+  --xp-teal: #008080;
+  --xp-teal-dark: #004040;
+  --xp-desktop: #1a4d8f;
+  --xp-silver: #ece9d8;
+  --xp-silver-dark: #aca899;
+  --xp-green: #3a9d23;
+
+  /* Aero Cyber-Glass accents — used for chrome (titlebar, tiles), while
+     panels stay light/silver so body text keeps strong contrast. */
+  --aero-cyan: #22d3ee;
+  --aero-teal: #0d9488;
+  --aero-blue: #2563eb;
+  --aero-deep: #0b3550;
+}
+
+body {
+  margin: 0;
+  font-family: "Tahoma Fallback", "Segoe UI", Verdana, sans-serif;
+  background: var(--xp-desktop) url("/background.jpg") center center / cover no-repeat fixed;
+  color: #111;
+  min-height: 100vh;
+}
+
+.xp-window {
+  background: var(--xp-silver);
+  border: 1px solid #0831d9;
+  border-radius: 8px 8px 3px 3px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.xp-titlebar {
+  background: linear-gradient(180deg, #2dd4e0 0%, #14b8c4 8%, #0f8fa8 40%, #0d7a94 60%, #0a5f7a 88%, #084a63 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 5px 6px 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: 0.2px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.xp-titlebar-btn {
+  width: 21px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), var(--aero-teal) 60%, var(--aero-deep));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: white;
+  margin-left: 4px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.xp-btn {
+  background: linear-gradient(180deg, #fefefe 0%, #ece9d8 50%, #d8d3c0 100%);
+  border: 1px solid var(--xp-silver-dark);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.1s, box-shadow 0.15s, border-color 0.15s;
+}
+.xp-btn:hover {
+  filter: brightness(1.03);
+  border-color: var(--aero-teal);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 8px rgba(34, 211, 238, 0.35);
+}
+.xp-btn:active {
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.xp-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.xp-inset {
+  background: white;
+  border: 1px solid var(--xp-silver-dark);
+  border-radius: 3px;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.tile {
+  font-family: "Tahoma Fallback", "Segoe UI", sans-serif;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(180deg, #5eead4 0%, var(--aero-teal) 45%, var(--aero-blue) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.55), inset 0 -6px 8px rgba(11, 53, 80, 0.25),
+    2px 2px 6px rgba(11, 53, 80, 0.4), 0 0 10px rgba(34, 211, 238, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+
+.crt-flicker {
+  animation: flicker 3.2s infinite;
+}
+@keyframes flicker {
+  0%, 96%, 100% { opacity: 1; }
+  97% { opacity: 0.94; }
+  98% { opacity: 1; }
+}
+
+.taskbar {
+  background: linear-gradient(180deg, #22d3ee 0%, #14b8c4 6%, #0f8fa8 50%, #0a5f7a 94%, #084a63 100%);
+  border-top: 1px solid #5eead4;
+}
+
+/* ---------- GLITCH MODE — page-wide scanlines, tear bands, corruption rift ---------- */
+@keyframes scanlineDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 240px; }
+}
+.glitch-scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+  background: repeating-linear-gradient(0deg, rgba(34, 211, 238, 0.22) 0px, transparent 1px, transparent 3px);
+  animation: scanlineDrift 3s linear infinite;
+}
+
+@keyframes tearJump {
+  0%, 92%, 100% { transform: translateX(0); opacity: 0; }
+  93% { transform: translateX(-14px); opacity: 0.5; }
+  95% { transform: translateX(10px); opacity: 0.5; }
+  97% { transform: translateX(-6px); opacity: 0.4; }
+}
+.glitch-tear-bands {
+  position: fixed;
+  inset: 0;
+  z-index: 46;
+  pointer-events: none;
+}
+.glitch-tear-bands::before,
+.glitch-tear-bands::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6%;
+  background: rgba(34, 211, 238, 0.25);
+  mix-blend-mode: color-dodge;
+  animation: tearJump 2.2s steps(1, end) infinite;
+}
+.glitch-tear-bands::before { top: 28%; animation-delay: 0.3s; }
+.glitch-tear-bands::after { top: 61%; background: rgba(244, 63, 94, 0.25); animation-delay: 0.9s; }
+
+@keyframes riftSweep {
+  0% { transform: translateY(-100%); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+.glitch-rift {
+  position: fixed;
+  inset: 0;
+  z-index: 47;
+  pointer-events: none;
+  overflow: hidden;
+}
+.glitch-rift::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(244, 63, 94, 0.9);
+  box-shadow: 0 0 30px 8px rgba(244, 63, 94, 0.55);
+  animation: riftSweep 0.26s linear;
+}
+.glitch-rift-label {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: #f43f5e;
+  text-shadow: 0 0 12px rgba(244, 63, 94, 0.8);
+}
+
+@keyframes glitchShift {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+.glitch-shake {
+  animation: glitchShift 0.18s steps(2, end) 3;
+}
+
+/* ---------- BLIND MODE — tiles dim/blur into a memory-only vignette ---------- */
+.blind-dim {
+  filter: blur(3px) brightness(0.85) saturate(0.7);
+  transition: filter 0.6s ease;
+}
+.blind-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at 50% 60%, transparent 0%, rgba(30, 40, 70, 0.22) 78%);
+}
+
+/* BLIND — pulsing warning cue in the seconds before a blackout */
+@keyframes blindWarningPulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+.blind-warning {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 6px rgba(220, 38, 38, 0.55);
+  animation: blindWarningPulse 0.5s ease-in-out infinite;
+}
+
+/* BLIND — recurring blackout blink (distinct from the one-shot mode-fx-blackout) */
+@keyframes blindBlink {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.blind-blackout {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: #000;
+  pointer-events: none;
+  animation: blindBlink 3s ease-in-out;
+}
+
+/* ---------- One-shot activation FX, played once when a mode toggle turns ON ---------- */
+
+/* BLIND — lights-out flash, like someone hit the breaker */
+@keyframes blackoutFlash {
+  0% { opacity: 0; }
+  12% { opacity: 1; }
+  55% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.mode-fx-blackout {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: #000;
+  pointer-events: none;
+  animation: blackoutFlash 0.7s ease-in-out;
+}
+
+/* GLITCH — bigger one-shot corruption burst than the in-round overlay, with a
+   "SYSTEM COMPROMISED" label instead of the recurring "CORRUPTED" one */
+.mode-fx-scanlines {
+  z-index: 76;
+  opacity: 0.85;
+}
+.mode-fx-tear-bands {
+  z-index: 77;
+}
+.mode-fx-rift-label {
+  color: #f43f5e;
+  font-size: 1rem;
+}
+@keyframes compromisedFlicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.25; }
+  55% { opacity: 1; }
+  70% { opacity: 0.4; }
+}
+.mode-fx-compromised {
+  position: fixed;
+  inset: 0;
+  z-index: 78;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: compromisedFlicker 0.9s steps(3, end);
+}
+.mode-fx-compromised span {
+  font-family: monospace;
+  font-weight: 900;
+  font-size: clamp(1.1rem, 4vw, 2rem);
+  letter-spacing: 0.25em;
+  color: #f43f5e;
+  text-shadow: 0 0 20px rgba(244, 63, 94, 0.9), 0 0 40px rgba(244, 63, 94, 0.5);
+}
+
+/* ABYSSAL — pulsing red border framing the whole screen, blinking for ~5s,
+   with a hovering skull logo at center */
+@keyframes abyssalBorderBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+@keyframes abyssalBorderGlow {
+  0%, 100% { box-shadow: inset 0 0 40px 6px rgba(220, 38, 38, 0.35); }
+  50% { box-shadow: inset 0 0 80px 16px rgba(220, 38, 38, 0.7); }
+}
+.mode-fx-abyssal-border {
+  position: fixed;
+  inset: 0;
+  z-index: 75;
+  pointer-events: none;
+  border: 6px solid rgba(220, 38, 38, 0.85);
+  animation: abyssalBorderBlink 0.5s steps(1, end) 10, abyssalBorderGlow 1s ease-in-out infinite;
+}
+@keyframes abyssalLogoFloat {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.85; }
+  50% { transform: translate(-50%, -54%) scale(1.15); opacity: 1; }
+}
+.mode-fx-abyssal-logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 76;
+  pointer-events: none;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  color: #dc2626;
+  text-shadow: 0 0 30px rgba(220, 38, 38, 0.85), 0 0 60px rgba(220, 38, 38, 0.4);
+  animation: abyssalLogoFloat 1.1s ease-in-out infinite;
+}
+
+/* TECHNICAL — spinning gear + wrench burst, feels like a system diagnostic kicking in */
+@keyframes gearSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes techScan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+.mode-fx-technical {
+  position: fixed;
+  inset: 0;
+  z-index: 76;
+  pointer-events: none;
+  overflow: hidden;
+}
+.mode-fx-technical::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.9), transparent);
+  box-shadow: 0 0 20px 4px rgba(34, 211, 238, 0.6);
+  animation: techScan 0.9s ease-in-out;
+}
+.mode-fx-technical-icon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 77;
+  pointer-events: none;
+  font-size: clamp(3rem, 9vw, 5rem);
+  color: #22d3ee;
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+  animation: gearSpin 0.9s linear;
+}
+.mode-fx-technical-wrench {
+  position: fixed;
+  top: calc(50% + 2.2rem);
+  left: calc(50% + 2.2rem);
+  z-index: 77;
+  pointer-events: none;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: #67e8f9;
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.7);
+}
