@@ -1,0 +1,167 @@
+# 🖥️ SYBORG Text Twist
+
+A Y2K / Windows XP–themed word scramble game (Text Twist–style), built for the
+IT, CS, BLIS & BSIS freshmen orientation. Unscramble a jumble of letters, find
+every hidden word within a 90-second round, and nail the full-length bonus
+word for the top score.
+
+Runs entirely in the browser — no login, no install. Play on the venue laptop
+or scan a QR code to play on your phone.
+
+---
+
+## ✨ Features
+
+- **Classic Text Twist gameplay** — drag/tap letters to build words, find all
+  the shorter words hidden inside the bonus word before time runs out.
+- **Y2K / Frutiger Aero aesthetic** — glassy XP-style windows, taskbar, glitch
+  overlays, and a looping ambient soundtrack.
+- **Badges** — unlockable achievements tracked per device.
+- **Leaderboard** — local by default (per device), optional **global**
+  leaderboard via Supabase so scores sync across every laptop/phone at the
+  event.
+- **Offline-friendly fallback** — if Supabase isn't configured, the game keeps
+  working with a local leaderboard only; nothing breaks.
+
+## 🧱 Stack
+
+| Layer      | Choice                                   |
+|------------|-------------------------------------------|
+| Build tool | Vite                                      |
+| UI         | React 19                                  |
+| Routing    | React Router                              |
+| Styling    | Tailwind CSS v4                           |
+| Backend    | Supabase (Postgres + auto-generated API)  |
+| Lint       | oxlint                                    |
+
+Same stack as the sibling project `Syborg Typing Game`.
+
+## 🚀 Getting started
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the printed local URL. For mobile testing, use your machine's LAN
+IP (Vite prints this too) and a QR code pointing at it.
+
+Other scripts:
+
+```bash
+npm run build     # production build -> dist/
+npm run preview   # preview the production build locally
+npm run lint      # oxlint
+```
+
+## 🌐 Global leaderboard (optional — Supabase)
+
+The game works fine with **no backend at all** (local per-device scores). If
+you want everyone at the event to share one leaderboard, wire up Supabase —
+see [Setting up Supabase](#-setting-up-supabase-from-scratch) below for a full
+walkthrough of *why* and *how*.
+
+Quick version:
+
+1. Create a Supabase project and run `supabase/schema.sql` in its SQL Editor.
+2. Copy `.env.example` to `.env.local` and fill in your project URL + anon key.
+3. Restart the dev server.
+
+## 🗄️ Setting up Supabase from scratch
+
+**What Supabase is for here:** this game needs *somewhere to store scores so
+every player's device sees the same leaderboard*. Supabase gives you a free
+hosted Postgres database plus an instant API, so the game can read/write
+scores without you writing or hosting a backend server yourself.
+
+If you skip this section entirely, the game still works — it just keeps
+scores in each browser's `localStorage`, so a laptop and a phone won't see
+each other's high scores.
+
+### Step 1 — Create a project
+
+1. Go to [supabase.com](https://supabase.com) and sign in / create a free
+   account.
+2. Click **New project**, choose an organization, give it a name (e.g.
+   `syborg-text-twist`), set a database password (save it somewhere), and
+   pick a region close to the venue.
+3. Wait ~1-2 minutes for provisioning.
+
+### Step 2 — Create the `scores` table
+
+1. In the project dashboard, open **SQL Editor → New query**.
+2. Paste the contents of [`supabase/schema.sql`](supabase/schema.sql) from
+   this repo and run it. This creates the `scores` table with columns for
+   name, score, words found, game mode, and timestamp, plus Row Level
+   Security policies that allow anyone to read and submit scores (there's no
+   login system, so this is intentionally open/club-internal).
+
+### Step 3 — Grab your API credentials
+
+1. Go to **Project Settings → API**.
+2. Copy the **Project URL** and the **`anon` public key**.
+
+### Step 4 — Configure the app
+
+1. Copy `.env.example` to a new file `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+2. Fill in the two values:
+   ```env
+   VITE_SUPABASE_URL=https://your-project-ref.supabase.co
+   VITE_SUPABASE_ANON_KEY=your-anon-key-here
+   ```
+3. Restart `npm run dev` (Vite only reads `.env*` files on startup).
+
+`.env.local` is git-ignored, so your keys never get committed. The `anon` key
+is meant to be public-safe (it's what ships in the browser bundle); write
+access is restricted only by the RLS policies in `schema.sql`.
+
+### How it's used in code
+
+`src/lib/supabase.js` creates the client and exposes two helpers,
+`fetchGlobalLeaderboard()` and `submitGlobalScore()`. Both silently no-op
+(return `[]` / do nothing) if the env vars aren't set — that's the fallback
+that lets the game run Supabase-free.
+
+## 📝 Word list
+
+`src/data/words.json` is a filtered (3-6 letter, lowercase) build of the
+`an-array-of-english-words` dictionary, generated by
+`node scripts/build-wordlist.mjs`. Re-run that script if the dependency is
+ever upgraded.
+
+## 🎵 Background music
+
+The looping playlist in `src/lib/music.js` plays through everything in
+`public/audio/`:
+
+- `frutiger-aero1-aquatic ambience-scizzie.mp3`
+- `frutiger-aero2-lotus waters-yume 2kki.mp3`
+- `frutiger-aero3-spring colors-takeshi abo official.mp3`
+- `frutiger-aero4-lemons.mp3`
+- `frutiger aero.mp3`
+- `frutiger aero 2.mp3`
+- `The past and now -LEASE--takeaboofficial.mp3`
+
+## 📁 Project structure
+
+```
+src/
+├── components/     # Reusable UI: letter tiles, taskbar, badges, overlays
+├── data/           # Word lists, badge definitions
+├── hooks/          # useTextTwist game logic hook
+├── lib/            # Supabase client, storage, sound, music, badges
+└── pages/          # Home, Play, Leaderboard, Rules, About
+supabase/
+└── schema.sql      # Global leaderboard table + RLS policies
+```
+
+## 🙏 Credits / asset attribution
+
+Not everything under `public/` was made by the team — some audio and one
+image were downloaded and belong to their original creators. See
+[`public/CREDITS.txt`](public/CREDITS.txt) and
+[`public/audio/CREDITS.txt`](public/audio/CREDITS.txt) for the full breakdown
+and attribution status of each asset.
