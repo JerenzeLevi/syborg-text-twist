@@ -1,0 +1,148 @@
+// Badge artwork: drop `<id>.png` into public/badges/ — falls back to the
+// emoji icon until the real artwork is provided.
+export const BADGES = [
+  {
+    id: "first-twist",
+    name: "First Twist",
+    icon: "🌀",
+    description: "Find the full-length bonus word in any round.",
+  },
+  {
+    id: "perfect-round",
+    name: "Perfect Round",
+    icon: "💯",
+    description: "Find every word in a round before time runs out.",
+  },
+  {
+    id: "cyber-novice",
+    name: "Cyber Novice",
+    icon: "🔌",
+    description: "Find 10 IT/CS vocabulary words across any rounds.",
+  },
+  {
+    id: "abyssal-survivor",
+    name: "Abyssal Survivor",
+    icon: "🛡",
+    description: "Finish an Abyssal Mode round without losing all 3 lives.",
+  },
+  {
+    id: "daily-devotee",
+    name: "Daily Devotee",
+    icon: "📅",
+    description: "Play the Daily Challenge on 3 different days.",
+  },
+  {
+    id: "streak-master",
+    name: "Streak Master",
+    icon: "🔥",
+    description: "Reach the maximum 2.5x streak multiplier.",
+  },
+  {
+    id: "glitch-tolerant",
+    name: "Glitch Tolerant",
+    icon: "⌁",
+    description: "Complete a round with Glitch Mode active.",
+  },
+  {
+    id: "blind-faith",
+    name: "Blind Faith",
+    icon: "◐",
+    description: "Complete a round with Blind Mode active.",
+  },
+  {
+    id: "easter-egg",
+    name: "You Found The Easter Egg",
+    icon: "🥚",
+    description: "???",
+  },
+  {
+    id: "master-of-all",
+    name: "Master of All",
+    icon: "👑",
+    description: "Solve 30 consecutive perfect rounds — every word, every time, 30 in a row.",
+  },
+  {
+    id: "github-follower",
+    name: "Followed the Creator",
+    icon: "⭐",
+    description: "Follow the creator on GitHub from the About page.",
+  },
+  {
+    id: "expert-of-all",
+    name: "Expert of all",
+    icon: "🏆",
+    description: "Complete 10 rounds with Technical, Abyssal, Glitch, and Blind Mode all active at once.",
+  },
+  {
+    id: "skill-issue",
+    name: "Skill issue frfr",
+    icon: "💀",
+    description: "Finish a round without finding a single word.",
+  },
+  {
+    id: "secret-admirer",
+    name: "Secret Admirer",
+    icon: "💘",
+    description: "???",
+  },
+  {
+    id: "the-king",
+    name: "The King, The Apex!",
+    icon: "👑",
+    description: "???",
+  },
+  {
+    id: "master-of-wind",
+    name: "Master of Wind",
+    icon: "🌬",
+    description: "Find the full-length bonus word, banking Second Wind, in 20 consecutive rounds.",
+  },
+  {
+    id: "wind-immunity",
+    name: "Wind Immunity",
+    icon: "🧊",
+    description: "Finish 10 consecutive rounds without ever needing Second Wind to save the clock.",
+  },
+  {
+    id: "hintless",
+    name: "Hintless",
+    icon: "🚫",
+    description: "Finish 5 consecutive rounds without using a single hint.",
+  },
+  {
+    id: "king-below-apex",
+    name: "King below The Apex; Levi",
+    icon: "🥈",
+    description: "Reach #2 on the leaderboard, in any mode.",
+  },
+  {
+    id: "hacker",
+    name: "W-w-what a hacker!",
+    icon: "💻",
+    description: "Reach #1 on the leaderboard, in any mode.",
+  },
+  {
+    id: "i-hate-you",
+    name: "I hate you",
+    icon: "😤",
+    description: "???",
+  },
+  {
+    id: "bro-speed",
+    name: "Bro thinks s/he's speed",
+    icon: "⚡",
+    description: "Clear every word in a round in under 5 seconds.",
+  },
+  {
+    id: "speedrun-chain",
+    name: "Speedrun!",
+    icon: "🏃",
+    description: "Clear 20 rounds in a row within 2 minutes total.",
+  },
+  {
+    id: "call-ambulance",
+    name: "Call ambulance but not for me",
+    icon: "🚑",
+    description: "Clear every word in a round with less than 3 seconds left on the clock.",
+  },
+];
