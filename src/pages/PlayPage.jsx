@@ -6,6 +6,7 @@ import SolutionSlots from "../components/SolutionSlots.jsx";
 import GlitchOverlay from "../components/GlitchOverlay.jsx";
 import BadgeIcon from "../components/BadgeIcon.jsx";
 import { useTextTwist } from "../hooks/useTextTwist.js";
+import { getWordCategory } from "../lib/wordGame.js";
 import {
   addLeaderboardEntry,
   findLowestEntryForName,
@@ -181,6 +182,11 @@ export default function PlayPage() {
     setPendingReplace(null);
   }
 
+  // Technical Mode's base word always belongs to a fixed IT/CS category —
+  // surfacing it upfront gives players a field to think in without
+  // spelling out the word itself.
+  const baseCategory = technical ? getWordCategory(game.puzzle.base) : null;
+
   const solvedAll = game.foundWords.length === game.puzzle.solutions.length;
   const titleParts = [];
   if (daily) titleParts.push("Daily Challenge");
@@ -227,6 +233,16 @@ export default function PlayPage() {
                          shadow-[0_0_10px_rgba(34,211,238,0.5)] uppercase tracking-widest"
             >
               ⚙ Technical — IT/CS Vocabulary
+            </span>
+          )}
+          {technical && baseCategory && (
+            <span
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold text-white
+                         bg-gradient-to-b from-indigo-400/40 to-indigo-700/30 border border-indigo-300/50
+                         shadow-[0_0_10px_rgba(99,102,241,0.5)] uppercase tracking-widest"
+              title="The hidden word's field — a clue to help you think in the right direction"
+            >
+              🏷 Category: {baseCategory}
             </span>
           )}
           {abyssal && (
