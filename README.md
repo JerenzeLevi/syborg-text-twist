@@ -1,5 +1,7 @@
 # 🖥️ SYBORG Text Twist
 
+See [`VERSION.txt`](VERSION.txt) for the version history / changelog.
+
 A Y2K / Windows XP–themed word scramble game (Text Twist–style), built for the
 IT, CS, BLIS & BSIS freshmen orientation. Unscramble a jumble of letters, find
 every hidden word within a 90-second round, and nail the full-length bonus
