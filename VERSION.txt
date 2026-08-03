@@ -1,5 +1,28 @@
 SYBORG Text Twist — Version History
 
+## 1.3
+- Expanded Networking with real tools/devices (crimp, crossover, patch,
+  splice, punch, ethernet, modem, hub, bridge, repeater, coaxial, fiber,
+  wireless, networking, topology, tester, stripper, antenna, relay, node,
+  mesh, ping, terminate, conduit) — every new term is in the guessable
+  dictionary so none of them are silently rejected as invalid finds.
+- Added two new categories: Object Oriented Programming (instance,
+  inheritance, polymorphism, encapsulation, abstraction, constructor,
+  destructor, superclass, subclass, interface, override, singleton,
+  composition, class, object, method, attribute) and Programming Languages
+  (Python, Java, JavaScript, Kotlin, Swift, Go, Rust, Ruby, Scala, Perl,
+  COBOL, Fortran, Haskell, Pascal, Prolog, MATLAB, C#, TypeScript, PHP,
+  Lisp). "Instance" and "Inheritance" moved out of Software Engineering
+  into the new OOP category since that's where they actually belong.
+- Clearing a round now resets the clock to a full 120s and clears Second
+  Wind (ready/used) for the next puzzle, instead of carrying the leftover
+  time forward. The "Wind Immunity" streak tracker (rounds cleared without
+  needing Second Wind) is unaffected — an unused bank still counts.
+- Enforced a 5-letter minimum on every technical vocabulary word (no more
+  3-4 letter entries); removed short-form language names (Java, PHP, Rust,
+  Ruby, Perl, Lisp) and dropped the last two 4-letter leftovers from
+  earlier categories (Gimp, Maya) to match.
+
 ## 1.2
 - Rebuilt the word dictionary (3,963 → 25,912 words) from a proper
   common-English-word corpus instead of a length-capped, overly strict
