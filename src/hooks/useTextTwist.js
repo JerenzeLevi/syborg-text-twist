@@ -318,9 +318,13 @@ export function useTextTwist({
   }, [status, currentGuess, foundWords, puzzle, showFlash, abyssal, multiplier, secondWindUsed, timeLeft]);
 
   // Solved every word in the round — advance to a fresh puzzle instead of
-  // idling out the clock, carrying score/time/streak forward (classic Text
-  // Twist "next round" behavior). Daily rounds stay on their single shared
-  // puzzle so the leaderboard comparison remains fair.
+  // idling out the clock, carrying score/streak forward (classic Text Twist
+  // "next round" behavior). The clock and Second Wind are per-round state,
+  // so both reset on a clear: a full 120s and a fresh shot at banking Second
+  // Wind again (the "Wind Immunity" badge tracks rounds cleared without ever
+  // needing it, so an unused bank still counts toward that streak). Daily
+  // rounds stay on their single shared puzzle so the leaderboard comparison
+  // remains fair.
   useEffect(() => {
     if (status !== "playing" || daily) return;
     if (foundWords.length === 0 || foundWords.length < puzzle.solutions.length) return;
@@ -330,6 +334,7 @@ export function useTextTwist({
     setPickedIndices([]);
     setFoundWords([]);
     setHintedLetters({});
+    setTimeLeft(ROUND_SECONDS);
     setSecondWindReady(false);
     setSecondWindUsed(false);
   }, [foundWords, puzzle, status, technical, daily]);
