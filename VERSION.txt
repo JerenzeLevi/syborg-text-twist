@@ -1,5 +1,29 @@
 SYBORG Text Twist — Version History
 
+## 1.2
+- Rebuilt the word dictionary (3,963 → 25,912 words) from a proper
+  common-English-word corpus instead of a length-capped, overly strict
+  frequency filter. Fixes valid guesses being rejected as "not a real
+  word" and timer-penalized (e.g. "process"), and short common words
+  missing from puzzles entirely (e.g. "reek", "elk").
+- Raised the dictionary's word-length ceiling from 6 to 8 letters to match
+  Technical Mode's longest base words. Previously any technical base word
+  of 7-8 letters (e.g. "protocol", "bandwidth", "gateway", "endpoint")
+  could never appear as a findable solution — including as the round's
+  own final word — because the dictionary structurally excluded words
+  that long. Every technical base word is now verified to include itself
+  among its own solutions.
+- Folded standard technical vocabulary (runtime, boolean, backend,
+  frontend, dataset, captcha, keyframe, etc.) into the guessable
+  dictionary so these terms are valid whenever they're spelled out from
+  the letters on screen, not just recognized as round-starting words.
+- Added a profanity filter to the dictionary build step — the previous
+  raw word source included slurs and obscenities that were reachable as
+  valid guesses.
+- Kept brand/product names used only as Technical Mode base words
+  (Pixar, InDesign, Lightroom) out of the guessable dictionary, since
+  they aren't standard English words.
+
 ## 1.1
 - Added new categories: Visual Graphics and Computer Animation (technical
   terms + common industry tools like Photoshop, Illustrator, Blender, Maya).

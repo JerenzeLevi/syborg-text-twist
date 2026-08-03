@@ -28,12 +28,12 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@vitejs/plugin-react": "^6.0.3",
-    "an-array-of-english-words": "^2.0.0",
     "autoprefixer": "^10.5.4",
-    "most-common-words-by-language": "^3.0.14",
+    "badwords-list": "^2.0.1-4",
     "oxlint": "^1.74.0",
     "postcss": "^8.5.20",
     "tailwindcss": "^4.3.3",
-    "vite": "^8.1.5"
+    "vite": "^8.1.5",
+    "wordlist-english": "^1.2.1"
   }
 }
