@@ -169,5 +169,19 @@
   { "word": "class", "category": "Object Oriented Programming" },
   { "word": "object", "category": "Object Oriented Programming" },
   { "word": "method", "category": "Object Oriented Programming" },
-  { "word": "attribute", "category": "Object Oriented Programming" }
+  { "word": "attribute", "category": "Object Oriented Programming" },
+  { "word": "python", "category": "Programming Languages" },
+  { "word": "javascript", "category": "Programming Languages" },
+  { "word": "kotlin", "category": "Programming Languages" },
+  { "word": "swift", "category": "Programming Languages" },
+  { "word": "golang", "category": "Programming Languages" },
+  { "word": "scala", "category": "Programming Languages" },
+  { "word": "cobol", "category": "Programming Languages" },
+  { "word": "fortran", "category": "Programming Languages" },
+  { "word": "haskell", "category": "Programming Languages" },
+  { "word": "pascal", "category": "Programming Languages" },
+  { "word": "prolog", "category": "Programming Languages" },
+  { "word": "matlab", "category": "Programming Languages" },
+  { "word": "csharp", "category": "Programming Languages" },
+  { "word": "typescript", "category": "Programming Languages" }
 ]
