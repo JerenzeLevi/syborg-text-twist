@@ -82,8 +82,6 @@
   { "word": "ransomware", "category": "Cybersecurity" },
   { "word": "bruteforce", "category": "Cybersecurity" },
   { "word": "encryption", "category": "Cybersecurity" },
-  { "word": "instance", "category": "Software Engineering" },
-  { "word": "inheritance", "category": "Software Engineering" },
   { "word": "multithreading", "category": "Software Engineering" },
   { "word": "debugging", "category": "Software Engineering" },
   { "word": "dependency", "category": "Software Engineering" },
@@ -160,5 +158,16 @@
   { "word": "antenna", "category": "Networking" },
   { "word": "relay", "category": "Networking" },
   { "word": "terminate", "category": "Networking" },
-  { "word": "conduit", "category": "Networking" }
+  { "word": "conduit", "category": "Networking" },
+  { "word": "instance", "category": "Object Oriented Programming" },
+  { "word": "destructor", "category": "Object Oriented Programming" },
+  { "word": "superclass", "category": "Object Oriented Programming" },
+  { "word": "subclass", "category": "Object Oriented Programming" },
+  { "word": "interface", "category": "Object Oriented Programming" },
+  { "word": "override", "category": "Object Oriented Programming" },
+  { "word": "singleton", "category": "Object Oriented Programming" },
+  { "word": "class", "category": "Object Oriented Programming" },
+  { "word": "object", "category": "Object Oriented Programming" },
+  { "word": "method", "category": "Object Oriented Programming" },
+  { "word": "attribute", "category": "Object Oriented Programming" }
 ]
