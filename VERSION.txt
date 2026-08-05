@@ -1,5 +1,12 @@
 SYBORG Text Twist — Version History
 
+## 1.4
+- Added new technical vocabulary across Software Engineering, Cybersecurity,
+  Networking, AI & Data Science, Embedded Systems, Visual Graphics, Computer
+  Animation, Object Oriented Programming, Programming Languages, and BLIS &
+  IS Concepts — every new term is in the guessable dictionary so none of
+  them are silently rejected as invalid finds.
+
 ## 1.3
 - Expanded Networking with real tools/devices (crimp, crossover, patch,
   splice, punch, ethernet, modem, hub, bridge, repeater, coaxial, fiber,
