@@ -1,5 +1,9 @@
 SYBORG Text Twist — Version History
 
+## 1.5
+- Added missing common words to the dictionary (axe, orb, orbs) so they're
+  no longer silently rejected as invalid finds.
+
 ## 1.4
 - Added new technical vocabulary across Software Engineering, Cybersecurity,
   Networking, AI & Data Science, Embedded Systems, Visual Graphics, Computer
